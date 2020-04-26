@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<!-- Icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Star Rating</title>
+<style>
+.rating{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+}
+span{
+    width: 100px;
+    color: blueviolet;
+}
+.checked{
+    color: orange;
+}
+</style>    
+</head>
+<body>
+    <div class="rating">   
+        <span id="star1" class="fa fa-5x fa-star"></span>
+        <span id="star2" class="fa fa-5x fa-star"></span>
+        <span id="star3" class="fa fa-5x fa-star"></span>
+        <span id="star4" class="fa fa-5x fa-star"></span>
+        <span id="star5" class="fa fa-5x fa-star"></span>
+    </div>   
+</body>
+<script>
+// variables and event listeners common to both ways of doing the code
+
+   var star1=document.getElementById("star1");
+   var star2=document.getElementById("star2");
+   var star3=document.getElementById("star3");
+   var star4=document.getElementById("star4");
+   var star5=document.getElementById("star5");
+   var rating = document.querySelector(".rating");
+
+   star1.addEventListener("mouseover", starChecked1);
+   star2.addEventListener("mouseover", starChecked2);
+   star3.addEventListener("mouseover", starChecked3);
+   star4.addEventListener("mouseover", starChecked4);
+   star5.addEventListener("mouseover", starChecked5);
+
+   star1.removeEventListener("mouseout", starChecked1);
+   star2.removeEventListener("mouseout", starChecked2);
+   star3.removeEventListener("mouseout", starChecked3);
+   star4.removeEventListener("mouseout", starChecked4);
+   star5.removeEventListener("mouseout", starChecked5);
+
+   star1.addEventListener("click", starChecked1);
+   star2.addEventListener("click", starChecked2);
+   star3.addEventListener("click", starChecked3);
+   star4.addEventListener("click", starChecked4);
+   star5.addEventListener("click", starChecked5);
+
+//First way
+function starChecked(starNum){
+    removeAll();
+    if(starNum=="starNum1"){
+        star1.classList.add("checked");
+    }
+    else if(starNum=="starNum2"){
+        star1.classList.add("checked");
+        star2.classList.add("checked");
+    }
+    else if(starNum=="starNum3"){
+        star1.classList.add("checked");
+        star2.classList.add("checked");
+        star3.classList.add("checked");
+    }
+    else if(starNum=="starNum4"){
+        star1.classList.add("checked");
+        star2.classList.add("checked");
+        star3.classList.add("checked");
+        star4.classList.add("checked");
+    }
+    else if(starNum=="starNum5"){
+        star1.classList.add("checked");
+        star2.classList.add("checked");
+        star3.classList.add("checked");
+        star4.classList.add("checked");
+        star5.classList.add("checked");
+    } 
+}
+
+function starChecked1(){
+    starChecked("starNum1");
+}
+function starChecked2(){
+    starChecked("starNum2");
+}
+function starChecked3(){
+    starChecked("starNum3");
+}
+function starChecked4(){
+    starChecked("starNum4");
+}
+function starChecked5(){
+    starChecked("starNum5");
+}
+
+//The two following functions are used in both ways of doing the code (the one above and the one commented below)
+function removeAll(){
+    star1.classList.remove("checked");
+    star2.classList.remove("checked");
+    star3.classList.remove("checked");
+    star4.classList.remove("checked");
+    star5.classList.remove("checked");
+}
+
+document.addEventListener("click", function(event) {
+	// If user clicks inside rating div (all the stars), do nothing
+	if (event.target.closest(".rating")) return;
+	// If user clicks outside the rating div, uncheck all stars.
+    removeAll();
+}); 
+
+//Second way
+
+/* function starChecked1(){
+    removeAll();
+    star1.classList.add("checked");
+    star2.classList.add("checked");
+}
+function starChecked2(){
+    removeAll();
+    star1.classList.add("checked");
+    star2.classList.add("checked");
+}
+function starChecked3(){
+    removeAll();
+    star1.classList.add("checked");
+    star2.classList.add("checked");
+    star3.classList.add("checked");
+}
+function starChecked4(){
+    removeAll();
+    star1.classList.add("checked");
+    star2.classList.add("checked");
+    star3.classList.add("checked");
+    star4.classList.add("checked");
+}
+function starChecked5(){
+    removeAll();
+    star1.classList.add("checked");
+    star2.classList.add("checked");
+    star3.classList.add("checked");
+    star4.classList.add("checked");
+    star5.classList.add("checked");
+} */
+
+</script>
+</html>
